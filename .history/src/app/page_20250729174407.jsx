@@ -51,7 +51,8 @@ const HomePage = () => {
       } else {
         // Mobile animation
         gsap.set(cards, {
-          y: "100vh"
+          opacity: 0,
+          y: 50
         });
 
         const mobileTl = gsap.timeline({
@@ -67,6 +68,7 @@ const HomePage = () => {
         // Animate cards one by one on mobile
         cards.forEach((card, index) => {
           mobileTl.to(card, {
+            opacity: 1,
             y: 0,
             duration: 0.5,
             ease: "power2.inOut"
@@ -492,7 +494,7 @@ const HomePage = () => {
         </div>
       </div>
       {/* Products Journey Section */}
-      <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
+      <div className="w-full mt-[6px] h-[400vh] sm:mt-[9px] lg:mt-[12px]" >
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-start items-end w-full">
             <img

@@ -5,80 +5,10 @@ import Button from '@/components/ui/Button';
 import SplineGlobe from '@/components/ui/SplineGlobe';
 import VideoHero from '@/components/ui/VideoHero';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 const HomePage = () => {
-  const sectionRef = useRef(null);
-  const cardRefs = useRef([]);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
 
-      const section = sectionRef.current;
-      const cards = cardRefs.current;
-
-      if (!section || !cards.length) return;
-
-      // Check for mobile or desktop
-      const mediaQuery = window.matchMedia('(min-width: 640px)');
-      
-      if (mediaQuery.matches) {
-        // Desktop animation
-        gsap.set(cards, {
-          y: "100vh"
-        });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=300%",
-            pin: true,
-            scrub: 1,
-            markers: true
-          }
-        });
-
-        cards.forEach((card, index) => {
-          tl.to(card, {
-            y: 0,
-            duration: 1,
-            ease: "power2.out"
-          }, index * 0.5);
-        });
-      } else {
-        // Mobile animation
-        gsap.set(cards, {
-          y: "100vh"
-        });
-
-        const mobileTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=200%",
-            pin: true,
-            scrub: 1
-          }
-        });
-
-        // Animate cards one by one on mobile
-        cards.forEach((card, index) => {
-          mobileTl.to(card, {
-            y: 0,
-            duration: 0.5,
-            ease: "power2.inOut"
-          }, index * 0.3); // Shorter stagger for mobile
-        });
-      }
-
-      return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      };
-    }
-  }, []);
   const industryPartners = [
     { src: '/images/img_67581f654b98724_72x116.png', width: '116', height: '72' },
     { src: '/images/img_66309a2c949f0dd.png', width: '244', height: '30' },
@@ -94,6 +24,27 @@ const HomePage = () => {
     { src: '/images/img_67694bdb9ee0061.png', width: '168', height: '24' },
     { src: '/images/img_67694bde1ea888d.png', width: '116', height: '40' },
     { src: '/images/img_676948c91943343.png', width: '106', height: '36' },
+  ];
+
+  const products = [
+    {
+      title: 'Bepay Money',
+      description:
+        'Bepay empowers businesses to operate globally, supporting seamless transactions in over 100 countries. Whether your customers are in Berlin or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.',
+      image: '/images/img_macbook_13.png',
+    },
+    {
+      title: 'Bepay Business',
+      description:
+        'Bepay empowers businesses to operate globally, supporting seamless transactions in over 100 countries. Whether your customers are in Berlin or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.',
+      image: '/images/img_macbook_air_2022.png',
+    },
+    {
+      title: 'Bepay Foundation',
+      description:
+        'Bepay empowers businesses to operate globally, supporting seamless transactions in over 100 countries. Whether your customers are in Berlin or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.',
+      image: '/images/img_macbook_13.png',
+    },
   ];
 
   const features = [
@@ -158,7 +109,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="bg-global-1 w-full">
+<div className="bg-global-1 w-full">
       {/* Hero Section */}
       <div className="w-full relative min-h-[80vh]  sm:min-h-screen overflow-hidden">
         {/* Video Background Component */}
@@ -186,7 +137,7 @@ const HomePage = () => {
             <Header />
 
             {/* Main Hero Content */}
-            <div className="flex flex-col justify-start items-center w-full  sm:mt-[42px] lg:mt-[56px]   sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
+            <div className="flex flex-col justify-start items-center w-full mt-[28px] sm:mt-[42px] lg:mt-[56px] mr-[88px] ml-[59px] sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
               <div className="flex flex-col justify-start items-center w-full">
                 {/* Hero Title */}
                 <div className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-20">
@@ -224,8 +175,7 @@ const HomePage = () => {
                 <div
                   className="absolute inset-0 rounded-[15px] sm:rounded-[18px] lg:rounded-[20px] border border-white/20 bg-black/30 backdrop-blur-[15px]"
                   style={{
-                    boxShadow:
-                      '0 0 15px 0 rgba(106, 98, 253, 0.40) inset, 0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+                    boxShadow: '0 0 15px 0 rgba(106, 98, 253, 0.40) inset, 0 8px 32px 0 rgba(0, 0, 0, 0.3)',
                   }}
                 />
 
@@ -492,7 +442,7 @@ const HomePage = () => {
         </div>
       </div>
       {/* Products Journey Section */}
-      <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
+      <div className="w-full mt-[6px] sm:mt-[9px] lg:mt-[12px]">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-start items-end w-full">
             <img
@@ -500,9 +450,10 @@ const HomePage = () => {
               alt="Decorative Element"
               className="w-[78px] h-[80px] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
               animate={{ y: [0, -10, 0] }}
+
             />
-            <div className="flex relative flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full mt-[-26px] sm:mt-[-39px] lg:mt-[-52px]"
-            ref={sectionRef}
+            <div 
+              className="flex relative flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full mt-[-26px] sm:mt-[-39px] lg:mt-[-52px]"
             >
               {/* Products Header */}
               <div
@@ -533,109 +484,46 @@ const HomePage = () => {
               </div>
 
               {/* Products List */}
-              <div className="sm:absolute sm:w-[1440px] sm:h-full sm:flex sm:justify-center" >
-                <div className="flex relative h-full justify-center flex-col gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px] w-full max-w-[1234px] mb-[30px] sm:mb-[45px] lg:mb-[60px] z-10">
-                  <>
-                    {/* Bepay Money */}
-                    <div
-                      ref={el => cardRefs.current[0] = el}
-                      className="flex sm:absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
-                      style={{
-                        boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
-                      }}
-                    >
-                      <div className="flex flex-col gap-[15px] sm:gap-[25px] lg:gap-[35px] xl:gap-[42px] justify-start items-start w-full lg:w-[60%]">
-                        <h3 className="text-[20px] sm:text-[28px] lg:text-[36px] xl:text-[48px] 2xl:text-[64px] font-poppins font-semibold leading-[26px] sm:leading-[36px] lg:leading-[45px] xl:leading-[60px] 2xl:leading-[96px] text-left text-global-2">
-                          Bepay Money
-                        </h3>
-                        <p className="text-[10px] sm:text-[12px] lg:text-[14px] xl:text-[16px] font-poppins font-normal leading-[14px] sm:leading-[16px] lg:leading-[20px] xl:leading-[26px] text-left text-global-3 w-full">
-                          Bepay empowers businesses to operate globally, supporting seamless
-                          transactions in over 100 countries. Whether your customers are in Berlin
-                          or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.
-                        </p>
-                        <Button
-                          variant="outline"
-                          className="text-[8px] sm:text-[10px] lg:text-[12px] xl:text-[14px] font-poppins font-medium leading-[12px] sm:leading-[15px] lg:leading-[18px] xl:leading-[21px] text-global-2 border border-button-1 rounded-[5px] sm:rounded-[7px] lg:rounded-[10px] bg-button-1 py-[6px] sm:py-[8px] lg:py-[10px] px-[16px] sm:px-[20px] lg:px-[24px] hover:bg-button-1/80 transition-colors"
-                        >
-                          View Website
-                        </Button>
-                      </div>
-                      <div className="w-full lg:w-[40%] flex justify-center lg:justify-end">
-                        <img
-                          src="/images/img_macbook_13.png"
-                          alt="Bepay Money"
-                          className="w-full max-w-[300px] sm:max-w-[350px] lg:max-w-none lg:w-full h-auto aspect-[4/3] object-cover rounded-[5px] sm:rounded-[7px] lg:rounded-[10px]"
-                        />
-                      </div>
+              <div className='absolute'>
+              <div 
+                className="flex relative w-full h-full  flex-col gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px] w-full max-w-[1234px] mb-[30px] sm:mb-[45px] lg:mb-[60px] px-4 sm:px-6 lg:px-8 z-10"
+              >
+                {products.map((product, index) => (
+                  <div
+                    key={index}
+                    className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
+                    style={{
+                      boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
+                    }}
+                  >
+                    {/* Content Section */}
+                    <div className="flex flex-col gap-[15px] sm:gap-[25px] lg:gap-[35px] xl:gap-[42px] justify-start items-start w-full lg:w-[60%]">
+                      <h3 className="text-[20px] sm:text-[28px] lg:text-[36px] xl:text-[48px] 2xl:text-[64px] font-poppins font-semibold leading-[26px] sm:leading-[36px] lg:leading-[45px] xl:leading-[60px] 2xl:leading-[96px] text-left text-global-2">
+                        {product.title}
+                      </h3>
+                      <p className="text-[10px] sm:text-[12px] lg:text-[14px] xl:text-[16px] font-poppins font-normal leading-[14px] sm:leading-[16px] lg:leading-[20px] xl:leading-[26px] text-left text-global-3 w-full">
+                        {product.description}
+                      </p>
+                      <Button
+                        variant="outline"
+                        className="text-[8px] sm:text-[10px] lg:text-[12px] xl:text-[14px] font-poppins font-medium leading-[12px] sm:leading-[15px] lg:leading-[18px] xl:leading-[21px] text-global-2 border border-button-1 rounded-[5px] sm:rounded-[7px] lg:rounded-[10px] bg-button-1 py-[6px] sm:py-[8px] lg:py-[10px] px-[16px] sm:px-[20px] lg:px-[24px] hover:bg-button-1/80 transition-colors"
+                      >
+                        View Website
+                      </Button>
                     </div>
 
-                    {/* Bepay Business */}
-                    <div
-                      ref={el => cardRefs.current[1] = el}
-                      className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
-                      style={{
-                        boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
-                      }}
-                    >
-                      <div className="flex flex-col gap-[15px] sm:gap-[25px] lg:gap-[35px] xl:gap-[42px] justify-start items-start w-full lg:w-[60%]">
-                        <h3 className="text-[20px] sm:text-[28px] lg:text-[36px] xl:text-[48px] 2xl:text-[64px] font-poppins font-semibold leading-[26px] sm:leading-[36px] lg:leading-[45px] xl:leading-[60px] 2xl:leading-[96px] text-left text-global-2">
-                          Bepay Business
-                        </h3>
-                        <p className="text-[10px] sm:text-[12px] lg:text-[14px] xl:text-[16px] font-poppins font-normal leading-[14px] sm:leading-[16px] lg:leading-[20px] xl:leading-[26px] text-left text-global-3 w-full">
-                          Bepay empowers businesses to operate globally, supporting seamless
-                          transactions in over 100 countries. Whether your customers are in Berlin
-                          or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.
-                        </p>
-                        <Button
-                          variant="outline"
-                          className="text-[8px] sm:text-[10px] lg:text-[12px] xl:text-[14px] font-poppins font-medium leading-[12px] sm:leading-[15px] lg:leading-[18px] xl:leading-[21px] text-global-2 border border-button-1 rounded-[5px] sm:rounded-[7px] lg:rounded-[10px] bg-button-1 py-[6px] sm:py-[8px] lg:py-[10px] px-[16px] sm:px-[20px] lg:px-[24px] hover:bg-button-1/80 transition-colors"
-                        >
-                          View Website
-                        </Button>
-                      </div>
-                      <div className="w-full lg:w-[40%] flex justify-center lg:justify-end">
-                        <img
-                          src="/images/img_macbook_air_2022.png"
-                          alt="Bepay Business"
-                          className="w-full max-w-[300px] sm:max-w-[350px] lg:max-w-none lg:w-full h-auto aspect-[4/3] object-cover rounded-[5px] sm:rounded-[7px] lg:rounded-[10px]"
-                        />
-                      </div>
+                    {/* Image Section */}
+                    <div className="w-full lg:w-[40%] flex justify-center lg:justify-end">
+                      <img
+                        src={product.image}
+                        alt={product.title}
+                        className="w-full max-w-[300px] sm:max-w-[350px] lg:max-w-none lg:w-full h-auto aspect-[4/3] object-cover rounded-[5px] sm:rounded-[7px] lg:rounded-[10px]"
+                      />
                     </div>
+                  </div>
+                ))}
+              </div>
 
-                    {/* Bepay Foundation */}
-                    <div
-                      ref={el => cardRefs.current[2] = el}
-                      className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
-                      style={{
-                        boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
-                      }}
-                    >
-                      <div className="flex flex-col gap-[15px] sm:gap-[25px] lg:gap-[35px] xl:gap-[42px] justify-start items-start w-full lg:w-[60%]">
-                        <h3 className="text-[20px] sm:text-[28px] lg:text-[36px] xl:text-[48px] 2xl:text-[64px] font-poppins font-semibold leading-[26px] sm:leading-[36px] lg:leading-[45px] xl:leading-[60px] 2xl:leading-[96px] text-left text-global-2">
-                          Bepay Foundation
-                        </h3>
-                        <p className="text-[10px] sm:text-[12px] lg:text-[14px] xl:text-[16px] font-poppins font-normal leading-[14px] sm:leading-[16px] lg:leading-[20px] xl:leading-[26px] text-left text-global-3 w-full">
-                          Bepay empowers businesses to operate globally, supporting seamless
-                          transactions in over 100 countries. Whether your customers are in Berlin
-                          or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.
-                        </p>
-                        <Button
-                          variant="outline"
-                          className="text-[8px] sm:text-[10px] lg:text-[12px] xl:text-[14px] font-poppins font-medium leading-[12px] sm:leading-[15px] lg:leading-[18px] xl:leading-[21px] text-global-2 border border-button-1 rounded-[5px] sm:rounded-[7px] lg:rounded-[10px] bg-button-1 py-[6px] sm:py-[8px] lg:py-[10px] px-[16px] sm:px-[20px] lg:px-[24px] hover:bg-button-1/80 transition-colors"
-                        >
-                          View Website
-                        </Button>
-                      </div>
-                      <div className="w-full lg:w-[40%] flex justify-center lg:justify-end">
-                        <img
-                          src="/images/img_macbook_13.png"
-                          alt="Bepay Foundation"
-                          className="w-full max-w-[300px] sm:max-w-[350px] lg:max-w-none lg:w-full h-auto aspect-[4/3] object-cover rounded-[5px] sm:rounded-[7px] lg:rounded-[10px]"
-                        />
-                      </div>
-                    </div>
-                  </>
-                </div>
               </div>
             </div>
           </div>
@@ -663,9 +551,9 @@ const HomePage = () => {
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className="group relative flex flex-col gap-[54px] sm:gap-[81px] lg:gap-[108px] justify-start items-start w-[90%] sm:w-[280px] sm:h-full border border-header-1 rounded-[7px] sm:rounded-[10px] lg:rounded-[14px] bg-[linear-gradient(180deg,#000000_0%,_#151515_100%)] pt-[10px] pr-[10px] pb-[10px] pl-[10px] sm:pt-[15px] sm:pr-[15px] sm:pb-[15px] sm:pl-[15px] lg:pt-[20px] lg:pr-[20px] lg:pb-[20px] lg:pl-[20px] transition-all duration-500 ease-in-out overflow-hidden"
+                    className="group relative flex flex-col gap-[54px] sm:gap-[81px] lg:gap-[108px] justify-start items-start w-[90%] sm:w-[280px] sm:h-full border border-header-1 rounded-[7px] sm:rounded-[10px] lg:rounded-[14px] bg-[linear-gradient(180deg,#000000_0%,_#151515_100%)] pt-[10px] pr-[10px] pb-[10px] pl-[10px] sm:pt-[15px] sm:pr-[15px] sm:pb-[15px] sm:pl-[15px] lg:pt-[20px] lg:pr-[20px] lg:pb-[20px] lg:pl-[20px] transition-all duration-500 ease-in-out overflow-hidden">
+                    <div className="absolute -bottom-1/2 left-1/2 -translate-x-1/2 w-[100%] h-[100%] bg-[#4bc3ff] opacity-0 group-hover:opacity-20 blur-[50px] rounded-full transition-opacity duration-500 ease-in-out"></div
                   >
-                    <div className="absolute -bottom-1/2 left-1/2 -translate-x-1/2 w-[100%] h-[100%] bg-[#4bc3ff] opacity-0 group-hover:opacity-20 blur-[50px] rounded-full transition-opacity duration-500 ease-in-out"></div>
                     <img
                       src={feature.icon}
                       alt={feature.title}

@@ -1,84 +1,13 @@
 'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
 import Header from '@/components/common/Header';
 import Button from '@/components/ui/Button';
 import SplineGlobe from '@/components/ui/SplineGlobe';
 import VideoHero from '@/components/ui/VideoHero';
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 const HomePage = () => {
-  const sectionRef = useRef(null);
-  const cardRefs = useRef([]);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-
-      const section = sectionRef.current;
-      const cards = cardRefs.current;
-
-      if (!section || !cards.length) return;
-
-      // Check for mobile or desktop
-      const mediaQuery = window.matchMedia('(min-width: 640px)');
-      
-      if (mediaQuery.matches) {
-        // Desktop animation
-        gsap.set(cards, {
-          y: "100vh"
-        });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=300%",
-            pin: true,
-            scrub: 1,
-            markers: true
-          }
-        });
-
-        cards.forEach((card, index) => {
-          tl.to(card, {
-            y: 0,
-            duration: 1,
-            ease: "power2.out"
-          }, index * 0.5);
-        });
-      } else {
-        // Mobile animation
-        gsap.set(cards, {
-          y: "100vh"
-        });
-
-        const mobileTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=200%",
-            pin: true,
-            scrub: 1
-          }
-        });
-
-        // Animate cards one by one on mobile
-        cards.forEach((card, index) => {
-          mobileTl.to(card, {
-            y: 0,
-            duration: 0.5,
-            ease: "power2.inOut"
-          }, index * 0.3); // Shorter stagger for mobile
-        });
-      }
-
-      return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      };
-    }
-  }, []);
   const industryPartners = [
     { src: '/images/img_67581f654b98724_72x116.png', width: '116', height: '72' },
     { src: '/images/img_66309a2c949f0dd.png', width: '244', height: '30' },
@@ -94,6 +23,27 @@ const HomePage = () => {
     { src: '/images/img_67694bdb9ee0061.png', width: '168', height: '24' },
     { src: '/images/img_67694bde1ea888d.png', width: '116', height: '40' },
     { src: '/images/img_676948c91943343.png', width: '106', height: '36' },
+  ];
+
+  const products = [
+    {
+      title: 'Bepay Money',
+      description:
+        'Bepay empowers businesses to operate globally, supporting seamless transactions in over 100 countries. Whether your customers are in Berlin or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.',
+      image: '/images/img_macbook_13.png',
+    },
+    {
+      title: 'Bepay Business',
+      description:
+        'Bepay empowers businesses to operate globally, supporting seamless transactions in over 100 countries. Whether your customers are in Berlin or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.',
+      image: '/images/img_macbook_air_2022.png',
+    },
+    {
+      title: 'Bepay Foundation',
+      description:
+        'Bepay empowers businesses to operate globally, supporting seamless transactions in over 100 countries. Whether your customers are in Berlin or Bangkok, Bepay ensures smooth, secure payments-anytime, anywhere.',
+      image: '/images/img_macbook_13.png',
+    },
   ];
 
   const features = [
@@ -186,7 +136,7 @@ const HomePage = () => {
             <Header />
 
             {/* Main Hero Content */}
-            <div className="flex flex-col justify-start items-center w-full  sm:mt-[42px] lg:mt-[56px]   sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
+            <div className="flex flex-col justify-start items-center w-full mt-[28px] sm:mt-[42px] lg:mt-[56px] mr-[88px] ml-[59px] sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
               <div className="flex flex-col justify-start items-center w-full">
                 {/* Hero Title */}
                 <div className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-20">
@@ -492,7 +442,7 @@ const HomePage = () => {
         </div>
       </div>
       {/* Products Journey Section */}
-      <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
+      <div className="w-full mt-[6px] sm:mt-[9px] lg:mt-[12px]">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-start items-end w-full">
             <img
@@ -501,9 +451,7 @@ const HomePage = () => {
               className="w-[78px] h-[80px] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
               animate={{ y: [0, -10, 0] }}
             />
-            <div className="flex relative flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full mt-[-26px] sm:mt-[-39px] lg:mt-[-52px]"
-            ref={sectionRef}
-            >
+            <div className="flex relative flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full mt-[-26px] sm:mt-[-39px] lg:mt-[-52px]">
               {/* Products Header */}
               <div
                 className="flex flex-row justify-center items-center w-full py-[80px] sm:py-[120px] lg:py-[160px] xl:py-[220px] px-[20px] sm:px-[42px] lg:px-[56px] bg-global-1 relative overflow-hidden"
@@ -533,13 +481,12 @@ const HomePage = () => {
               </div>
 
               {/* Products List */}
-              <div className="sm:absolute sm:w-[1440px] sm:h-full sm:flex sm:justify-center" >
-                <div className="flex relative h-full justify-center flex-col gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px] w-full max-w-[1234px] mb-[30px] sm:mb-[45px] lg:mb-[60px] z-10">
+              <div className="absolute w-[1440px] h-full flex justify-center">
+                <div className="flex relative h-full justify-center  flex-col gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px] w-full max-w-[1234px] mb-[30px] sm:mb-[45px] lg:mb-[60px] z-10">
                   <>
                     {/* Bepay Money */}
                     <div
-                      ref={el => cardRefs.current[0] = el}
-                      className="flex sm:absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
+                      className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
                       }}
@@ -571,7 +518,6 @@ const HomePage = () => {
 
                     {/* Bepay Business */}
                     <div
-                      ref={el => cardRefs.current[1] = el}
                       className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
@@ -604,7 +550,6 @@ const HomePage = () => {
 
                     {/* Bepay Foundation */}
                     <div
-                      ref={el => cardRefs.current[2] = el}
                       className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',

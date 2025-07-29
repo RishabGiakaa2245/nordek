@@ -21,7 +21,7 @@ const HomePage = () => {
 
       if (!section || !cards.length) return;
 
-      // Check for mobile or desktop
+      // Only apply animation for screens larger than mobile (640px is typical sm breakpoint)
       const mediaQuery = window.matchMedia('(min-width: 640px)');
       
       if (mediaQuery.matches) {
@@ -49,28 +49,9 @@ const HomePage = () => {
           }, index * 0.5);
         });
       } else {
-        // Mobile animation
+        // Reset any GSAP styles on mobile
         gsap.set(cards, {
-          y: "100vh"
-        });
-
-        const mobileTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=200%",
-            pin: true,
-            scrub: 1
-          }
-        });
-
-        // Animate cards one by one on mobile
-        cards.forEach((card, index) => {
-          mobileTl.to(card, {
-            y: 0,
-            duration: 0.5,
-            ease: "power2.inOut"
-          }, index * 0.3); // Shorter stagger for mobile
+          clearProps: "all"
         });
       }
 
@@ -492,7 +473,7 @@ const HomePage = () => {
         </div>
       </div>
       {/* Products Journey Section */}
-      <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
+      <div className="w-full mt-[6px]  sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-start items-end w-full">
             <img
@@ -534,7 +515,7 @@ const HomePage = () => {
 
               {/* Products List */}
               <div className="sm:absolute sm:w-[1440px] sm:h-full sm:flex sm:justify-center" >
-                <div className="flex relative h-full justify-center flex-col gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px] w-full max-w-[1234px] mb-[30px] sm:mb-[45px] lg:mb-[60px] z-10">
+                <div className="flex sm:relative h-full justify-center flex-col gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px] w-full max-w-[1234px] mb-[30px] sm:mb-[45px] lg:mb-[60px] z-10">
                   <>
                     {/* Bepay Money */}
                     <div
@@ -572,7 +553,7 @@ const HomePage = () => {
                     {/* Bepay Business */}
                     <div
                       ref={el => cardRefs.current[1] = el}
-                      className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
+                      className="flex sm:absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
                       }}
@@ -605,7 +586,7 @@ const HomePage = () => {
                     {/* Bepay Foundation */}
                     <div
                       ref={el => cardRefs.current[2] = el}
-                      className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
+                      className="flex sm:absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
                       }}

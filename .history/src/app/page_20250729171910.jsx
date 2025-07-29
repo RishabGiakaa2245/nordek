@@ -21,58 +21,27 @@ const HomePage = () => {
 
       if (!section || !cards.length) return;
 
-      // Check for mobile or desktop
-      const mediaQuery = window.matchMedia('(min-width: 640px)');
-      
-      if (mediaQuery.matches) {
-        // Desktop animation
-        gsap.set(cards, {
-          y: "100vh"
-        });
+      // Set initial states of cards
+      gsap.set(cards, {
+        opacity: 0,
+        y: 100
+      });
 
-        const tl = gsap.timeline({
+      // Create a timeline for each card
+      cards.forEach((card, index) => {
+        gsap.to(card, {
+          opacity: 1,
+          y: 0,
+          duration: 1,
           scrollTrigger: {
             trigger: section,
-            start: "top top",
-            end: "+=300%",
-            pin: true,
+            start: `top+=${index * 33}% center`,
+            end: `top+=${(index + 1) * 33}% center`,
             scrub: 1,
-            markers: true
+            toggleActions: "play none none reverse"
           }
         });
-
-        cards.forEach((card, index) => {
-          tl.to(card, {
-            y: 0,
-            duration: 1,
-            ease: "power2.out"
-          }, index * 0.5);
-        });
-      } else {
-        // Mobile animation
-        gsap.set(cards, {
-          y: "100vh"
-        });
-
-        const mobileTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=200%",
-            pin: true,
-            scrub: 1
-          }
-        });
-
-        // Animate cards one by one on mobile
-        cards.forEach((card, index) => {
-          mobileTl.to(card, {
-            y: 0,
-            duration: 0.5,
-            ease: "power2.inOut"
-          }, index * 0.3); // Shorter stagger for mobile
-        });
-      }
+      });
 
       return () => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -186,7 +155,7 @@ const HomePage = () => {
             <Header />
 
             {/* Main Hero Content */}
-            <div className="flex flex-col justify-start items-center w-full  sm:mt-[42px] lg:mt-[56px]   sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
+            <div className="flex flex-col justify-start items-center w-full mt-[28px] sm:mt-[42px] lg:mt-[56px] mr-[88px] ml-[59px] sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
               <div className="flex flex-col justify-start items-center w-full">
                 {/* Hero Title */}
                 <div className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-20">
@@ -492,7 +461,7 @@ const HomePage = () => {
         </div>
       </div>
       {/* Products Journey Section */}
-      <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
+      <div className="w-full mt-[6px] sm:mt-[9px] lg:mt-[12px]">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-start items-end w-full">
             <img
@@ -501,9 +470,7 @@ const HomePage = () => {
               className="w-[78px] h-[80px] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
               animate={{ y: [0, -10, 0] }}
             />
-            <div className="flex relative flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full mt-[-26px] sm:mt-[-39px] lg:mt-[-52px]"
-            ref={sectionRef}
-            >
+            <div className="flex relative flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full mt-[-26px] sm:mt-[-39px] lg:mt-[-52px]">
               {/* Products Header */}
               <div
                 className="flex flex-row justify-center items-center w-full py-[80px] sm:py-[120px] lg:py-[160px] xl:py-[220px] px-[20px] sm:px-[42px] lg:px-[56px] bg-global-1 relative overflow-hidden"
@@ -533,13 +500,13 @@ const HomePage = () => {
               </div>
 
               {/* Products List */}
-              <div className="sm:absolute sm:w-[1440px] sm:h-full sm:flex sm:justify-center" >
+              <div className="absolute w-[1440px] h-full flex justify-center" ref={sectionRef}>
                 <div className="flex relative h-full justify-center flex-col gap-[40px] sm:gap-[60px] lg:gap-[80px] xl:gap-[120px] w-full max-w-[1234px] mb-[30px] sm:mb-[45px] lg:mb-[60px] z-10">
                   <>
                     {/* Bepay Money */}
                     <div
                       ref={el => cardRefs.current[0] = el}
-                      className="flex sm:absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
+                      className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
                       }}
@@ -571,7 +538,6 @@ const HomePage = () => {
 
                     {/* Bepay Business */}
                     <div
-                      ref={el => cardRefs.current[1] = el}
                       className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',
@@ -604,7 +570,6 @@ const HomePage = () => {
 
                     {/* Bepay Foundation */}
                     <div
-                      ref={el => cardRefs.current[2] = el}
                       className="flex absolute flex-col lg:flex-row backdrop-blur-[12.5px] justify-start items-center w-full border border-header-1 rounded-[10px] sm:rounded-[15px] lg:rounded-[20px] bg-global-3 p-[15px] sm:p-[25px] lg:p-[30px] xl:p-[40px] gap-[20px] lg:gap-[30px]"
                       style={{
                         boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.50) inset',

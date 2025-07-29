@@ -21,7 +21,7 @@ const HomePage = () => {
 
       if (!section || !cards.length) return;
 
-      // Check for mobile or desktop
+      // Only apply animation for screens larger than mobile (640px is typical sm breakpoint)
       const mediaQuery = window.matchMedia('(min-width: 640px)');
       
       if (mediaQuery.matches) {
@@ -49,28 +49,9 @@ const HomePage = () => {
           }, index * 0.5);
         });
       } else {
-        // Mobile animation
+        // Reset any GSAP styles on mobile
         gsap.set(cards, {
-          y: "100vh"
-        });
-
-        const mobileTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top top",
-            end: "+=200%",
-            pin: true,
-            scrub: 1
-          }
-        });
-
-        // Animate cards one by one on mobile
-        cards.forEach((card, index) => {
-          mobileTl.to(card, {
-            y: 0,
-            duration: 0.5,
-            ease: "power2.inOut"
-          }, index * 0.3); // Shorter stagger for mobile
+          clearProps: "all"
         });
       }
 
@@ -492,7 +473,7 @@ const HomePage = () => {
         </div>
       </div>
       {/* Products Journey Section */}
-      <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
+      <div className="w-full mt-[6px]  sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]" >
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-start items-end w-full">
             <img
