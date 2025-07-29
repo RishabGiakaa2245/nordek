@@ -1,0 +1,89 @@
+@import './tailwind.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reusable Animation Classes */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in.appear {
+  opacity: 1;
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-left.appear {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right.appear {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease-out;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(106, 98, 253, 0.3);
+}
+
+/* Stagger delays for groups */
+.stagger-delay > *:nth-child(1) { transition-delay: 0s; }
+.stagger-delay > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger-delay > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger-delay > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger-delay > *:nth-child(5) { transition-delay: 0.4s; }
+
+/* Soft hover effect for buttons */
+.button-hover {
+  transition: all 0.3s ease-out;
+}
+
+.button-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 98, 253, 0.2);
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
