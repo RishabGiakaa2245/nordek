@@ -426,9 +426,9 @@ const HomePage = () => {
                 {/* Scrolling content */}
                 <motion.div 
                   initial={{ x: "0%" }}
-                  animate={{ x: "-200%" }}
+                  animate={{ x: "1200px" }}
                   transition={{
-                    duration: 10,
+                    duration: 5,
                     repeat: Infinity,
                     ease: "linear",
                     repeatType: "loop"

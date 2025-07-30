@@ -426,9 +426,9 @@ const HomePage = () => {
                 {/* Scrolling content */}
                 <motion.div 
                   initial={{ x: "0%" }}
-                  animate={{ x: "-200%" }}
+                  animate={{ x: "-50%" }}
                   transition={{
-                    duration: 10,
+                    duration: 5,
                     repeat: Infinity,
                     ease: "linear",
                     repeatType: "loop"
@@ -445,20 +445,6 @@ const HomePage = () => {
                     <motion.img
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      src="/images/6784f51962c258eac0677996_RSM-Site-Navigation-Logo_Desktop 1.png"
-                      alt="Partner Logo"
-                      className="flex-shrink-0 w-auto h-[40px] self-center sm:h-[50px] lg:h-[60px] mr-[27px] sm:mr-[40px] lg:mr-[54px]"
-                    />
-                    <motion.img
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      src="/images/6784f562a86924548c7b7d95_logo 1.png"
-                      alt="Partner Logo"
-                      className="flex-shrink-0 w-auto h-[40px] self-center sm:h-[50px] lg:h-[60px] mr-[27px] sm:mr-[40px] lg:mr-[54px]"
-                    />
-                    <motion.img
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
                       src="/images/Clip path group.png"
                       alt="Partner Logo"
                       className="flex-shrink-0 w-auto h-[20px] self-center sm:h-[63px] lg:h-[40px] mr-[27px] sm:mr-[40px] lg:mr-[54px]"
@@ -470,7 +456,6 @@ const HomePage = () => {
                       alt="Partner Logo"
                       className="flex-shrink-0 w-auto h-[40px] self-center sm:h-[50px] lg:h-[60px] mr-[27px] sm:mr-[40px] lg:mr-[54px]"
                     />
-                    
                     <motion.img
                       whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -493,7 +478,20 @@ const HomePage = () => {
                       alt="Partner Logo"
                       className="flex-shrink-0 w-auto h-[20px] self-center sm:h-[63px] lg:h-[40px] mr-[27px] sm:mr-[40px] lg:mr-[54px]"
                     />
-                    
+                    <motion.img
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      src="/images/6784f51962c258eac0677996_RSM-Site-Navigation-Logo_Desktop 1.png"
+                      alt="Partner Logo"
+                      className="flex-shrink-0 w-auto h-[40px] self-center sm:h-[50px] lg:h-[60px] mr-[27px] sm:mr-[40px] lg:mr-[54px]"
+                    />
+                    <motion.img
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      src="/images/6784f562a86924548c7b7d95_logo 1.png"
+                      alt="Partner Logo"
+                      className="flex-shrink-0 w-auto h-[40px] self-center sm:h-[50px] lg:h-[60px] mr-[27px] sm:mr-[40px] lg:mr-[54px]"
+                    />
                 </motion.div>
               </div>
             </div>

@@ -428,7 +428,7 @@ const HomePage = () => {
                   initial={{ x: "0%" }}
                   animate={{ x: "-200%" }}
                   transition={{
-                    duration: 10,
+                    duration: 5,
                     repeat: Infinity,
                     ease: "linear",
                     repeatType: "loop"
