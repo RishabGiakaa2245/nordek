@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import Header from '@/components/common/Header';
 import Button from '@/components/ui/Button';
@@ -159,14 +160,14 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="w-full relative min-h-[80vh]  sm:min-h-screen overflow-hidden">
         {/* Video Background Component */}
-        <VideoHero />
+        {/* <VideoHero /> */}
 
         {/* Remove or reduce the animated blobs since video is now the background */}
-        <div className="absolute -top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-full h-full pointer-events-none z-[1]">
+        <div className="absolute -top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-full h-full pointer-events-none z-9">
           <div className="relative w-full h-full">
             {/* Subtle accent blob - reduced opacity */}
             <div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[30%] rounded-full opacity-10"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[30%] rounded-full opacity-[90%"
               style={{
                 background:
                   'radial-gradient(circle, rgba(106, 98, 253, 0.3) 0%, rgba(75, 195, 255, 0.2) 50%, transparent 70%)',
@@ -190,7 +191,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.15 }}
-                  className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-0"
+                  className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-20"
                 >
                   <div className="flex flex-row gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-center items-center w-auto">
                     <motion.h1 
@@ -225,7 +226,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="flex flex-row gap-[6px] sm:gap-[9px] lg:gap-[12px] justify-center items-center w-auto mt-[5px] sm:mt-[7px] lg:mt-[10px] relative z-0"
+                  className="flex flex-row gap-[6px] sm:gap-[9px] lg:gap-[12px] justify-center items-center w-auto mt-[5px] sm:mt-[7px] lg:mt-[10px] relative z-20"
                 >
                   <motion.p 
                     initial={{ opacity: 0 }}
@@ -256,7 +257,7 @@ const HomePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[480px] h-[140px] sm:h-[160px] lg:h-[180px] mt-20 my-[40px] sm:my-[55px] lg:my-[70px] z-0"
+                className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[480px] h-[140px] sm:h-[160px] lg:h-[180px] mt-20 my-[40px] sm:my-[55px] lg:my-[70px] z-30"
               >
                 {/* Card Background with enhanced glass effect */}
                 <motion.div
@@ -647,7 +648,7 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 className="flex flex-col lg:flex-row justify-between items-start gap-[24px] sm:gap-[80px] lg:gap-0 w-full lg:w-[86%] mt-[40px] sm:mt-[60px] lg:mt-[80px]"
               >
                 {/* Mission Card */}
@@ -684,7 +685,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
                     className="text-[16px] sm:text-[24px] lg:text-[32px] font-poppins font-semibold leading-[24px] sm:leading-[36px] lg:leading-[48px] text-left text-global-2 w-full"
                   >
                     Empowering the Future of Finance Through Innovation, Speed, and Trust
@@ -725,7 +726,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
                     className="text-[16px] sm:text-[24px] lg:text-[32px] font-poppins font-semibold leading-[24px] sm:leading-[36px] lg:leading-[48px] text-left text-global-2 w-full"
                   >
                     Leading the Evolution of Global Financial Technologies with Purpose and Innovation
@@ -823,7 +824,8 @@ const HomePage = () => {
                   <>
                     {/* Bepay Money */}
                     <motion.div
-                      ref={typeof window !== 'undefined' && window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}                      initial={{ opacity: 0, y: 50 }}
+                      ref={typeof window !== 'undefined' && window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}
+                      initial={{ opacity: 0, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8 }}

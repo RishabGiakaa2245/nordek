@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import Header from '@/components/common/Header';
 import Button from '@/components/ui/Button';
@@ -190,7 +191,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.15 }}
-                  className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-0"
+                  className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-20"
                 >
                   <div className="flex flex-row gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-center items-center w-auto">
                     <motion.h1 
@@ -225,7 +226,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="flex flex-row gap-[6px] sm:gap-[9px] lg:gap-[12px] justify-center items-center w-auto mt-[5px] sm:mt-[7px] lg:mt-[10px] relative z-0"
+                  className="flex flex-row gap-[6px] sm:gap-[9px] lg:gap-[12px] justify-center items-center w-auto mt-[5px] sm:mt-[7px] lg:mt-[10px] relative z-20"
                 >
                   <motion.p 
                     initial={{ opacity: 0 }}
@@ -256,7 +257,7 @@ const HomePage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
                 whileHover={{ scale: 1.02, y: -5 }}
-                className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[480px] h-[140px] sm:h-[160px] lg:h-[180px] mt-20 my-[40px] sm:my-[55px] lg:my-[70px] z-0"
+                className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[480px] h-[140px] sm:h-[160px] lg:h-[180px] mt-20 my-[40px] sm:my-[55px] lg:my-[70px] z-30"
               >
                 {/* Card Background with enhanced glass effect */}
                 <motion.div
@@ -536,7 +537,7 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.05 }}
                 className="flex items-center w-full justify-center mb-12"
               >
                 <div className="flex-1 h-[3px] bg-gradient-to-r from-transparent via-cyan-300/50 to-cyan-400 max-w-[80px] sm:max-w-[120px] lg:max-w-[160px]"></div>
@@ -550,21 +551,21 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.05 }}
                 className="flex flex-col justify-start items-center w-[84%] mt-[4px] sm:mt-[6px] lg:mt-[8px]"
               >
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.15, delay: 0.05 }}
+                  transition={{ duration: 0.05 }}
                   className="flex flex-row gap-[6px] sm:gap-[9px] lg:gap-[12px] justify-center items-center w-auto"
                 >
                   <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.15, delay: 0.075 }}
+                    transition={{ duration: 0.05 }}
                     className="text-[20px] sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-left uppercase text-global-2"
                   >
                     At
@@ -574,7 +575,7 @@ const HomePage = () => {
                     whileInView={{ opacity: 1 }}
                     whileHover={{ scale: 1.05 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
+                    transition={{ duration: 0.05}}
                     src="/images/img_group_1707480521.svg"
                     alt="Nordek Logo"
                     className="w-[92px] h-auto sm:w-[213px] sm:h-[51px] lg:w-[284px] lg:h-[68px] "
@@ -583,7 +584,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.15 }}
+                    transition={{ duration: 0.05 }}
                     className="text-[20px] text-nowrap sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-right uppercase text-global-2"
                   >
                     , we believe
@@ -594,7 +595,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.15, delay: 0.1 }}
+                  transition={{ duration: 0.05, }}
                   className="text-[20px] sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-center uppercase text-global-2 mt-[-10px] sm:mt-[-15px] lg:mt-[-20px]"
                 >
                   financial freedom should
@@ -608,14 +609,14 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 1.4 }}
+                  transition={{ duration: 0.05 }}
                   className="flex flex-row gap-[6px] sm:gap-[9px] lg:gap-[12px] justify-center items-center w-auto"
                 >
                   <motion.h2 
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1.6 }}
+                    transition={{ duration: 0.05 }}
                     className="text-[20px] sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-left uppercase text-global-2"
                   >
                     know
@@ -625,7 +626,7 @@ const HomePage = () => {
                     whileInView={{ opacity: 1 }}
                     whileHover={{ scale: 1.05 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
+                    transition={{ duration: 0.05 }}
                     src="/images/img_group_1707480526.svg"
                     alt="No Icon"
                     className="w-[38px] h-auto sm:w-[87px] lg:w-[116px]"
@@ -634,7 +635,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1.6 }}
+                    transition={{ duration: 0.05 }}
                     className="text-[20px] sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-right uppercase text-global-2"
                   >
                     boundaries.
@@ -647,7 +648,7 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.5, delay: 1 }}
                 className="flex flex-col lg:flex-row justify-between items-start gap-[24px] sm:gap-[80px] lg:gap-0 w-full lg:w-[86%] mt-[40px] sm:mt-[60px] lg:mt-[80px]"
               >
                 {/* Mission Card */}
@@ -660,7 +661,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1 }}
+                    transition={{ duration: 0.1 }}
                     className="flex flex-row justify-start items-start w-full pt-[10px] pr-[10px] pb-[10px] pl-[10px] sm:pt-[15px] sm:pr-[15px] sm:pb-[15px] sm:pl-[15px] lg:pt-[20px] lg:pr-[20px] lg:pb-[20px] lg:pl-[20px] rounded-xl"
                     style={{
                       backgroundImage: "url('/images/img_mask_group.png')",
@@ -684,7 +685,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.1 }}
                     className="text-[16px] sm:text-[24px] lg:text-[32px] font-poppins font-semibold leading-[24px] sm:leading-[36px] lg:leading-[48px] text-left text-global-2 w-full"
                   >
                     Empowering the Future of Finance Through Innovation, Speed, and Trust
@@ -701,7 +702,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1 }}
+                    transition={{ duration: 0.1 }}
                     className="flex flex-row justify-start items-start w-full pt-[10px] pr-[10px] pb-[10px] pl-[10px] sm:pt-[15px] sm:pr-[15px] sm:pb-[15px] sm:pl-[15px] lg:pt-[20px] lg:pr-[20px] lg:pb-[20px] lg:pl-[20px] rounded-xl"
                     style={{
                       backgroundImage: "url('/images/img_group_1707480532.png')",
@@ -725,7 +726,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.1 }}
                     className="text-[16px] sm:text-[24px] lg:text-[32px] font-poppins font-semibold leading-[24px] sm:leading-[36px] lg:leading-[48px] text-left text-global-2 w-full"
                   >
                     Leading the Evolution of Global Financial Technologies with Purpose and Innovation
@@ -823,7 +824,8 @@ const HomePage = () => {
                   <>
                     {/* Bepay Money */}
                     <motion.div
-                      ref={typeof window !== 'undefined' && window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}                      initial={{ opacity: 0, y: 50 }}
+                      ref={typeof window !== 'undefined' && window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}
+                      initial={{ opacity: 0, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8 }}

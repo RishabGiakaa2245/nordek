@@ -647,7 +647,7 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 1 }}
+                transition={{ duration: 0.8, delay: 2 }}
                 className="flex flex-col lg:flex-row justify-between items-start gap-[24px] sm:gap-[80px] lg:gap-0 w-full lg:w-[86%] mt-[40px] sm:mt-[60px] lg:mt-[80px]"
               >
                 {/* Mission Card */}
@@ -660,7 +660,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1 }}
+                    transition={{ duration: 0.6, delay: 2.2 }}
                     className="flex flex-row justify-start items-start w-full pt-[10px] pr-[10px] pb-[10px] pl-[10px] sm:pt-[15px] sm:pr-[15px] sm:pb-[15px] sm:pl-[15px] lg:pt-[20px] lg:pr-[20px] lg:pb-[20px] lg:pl-[20px] rounded-xl"
                     style={{
                       backgroundImage: "url('/images/img_mask_group.png')",
@@ -684,7 +684,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.6, delay: 2.4 }}
                     className="text-[16px] sm:text-[24px] lg:text-[32px] font-poppins font-semibold leading-[24px] sm:leading-[36px] lg:leading-[48px] text-left text-global-2 w-full"
                   >
                     Empowering the Future of Finance Through Innovation, Speed, and Trust
@@ -701,7 +701,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 1 }}
+                    transition={{ duration: 0.6, delay: 2.6 }}
                     className="flex flex-row justify-start items-start w-full pt-[10px] pr-[10px] pb-[10px] pl-[10px] sm:pt-[15px] sm:pr-[15px] sm:pb-[15px] sm:pl-[15px] lg:pt-[20px] lg:pr-[20px] lg:pb-[20px] lg:pl-[20px] rounded-xl"
                     style={{
                       backgroundImage: "url('/images/img_group_1707480532.png')",
@@ -725,7 +725,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
+                    transition={{ duration: 0.6, delay: 2.8 }}
                     className="text-[16px] sm:text-[24px] lg:text-[32px] font-poppins font-semibold leading-[24px] sm:leading-[36px] lg:leading-[48px] text-left text-global-2 w-full"
                   >
                     Leading the Evolution of Global Financial Technologies with Purpose and Innovation
@@ -823,7 +823,8 @@ const HomePage = () => {
                   <>
                     {/* Bepay Money */}
                     <motion.div
-                      ref={typeof window !== 'undefined' && window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}                      initial={{ opacity: 0, y: 50 }}
+                      ref={window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}
+                      initial={{ opacity: 0, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8 }}

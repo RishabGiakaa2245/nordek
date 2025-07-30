@@ -123,7 +123,7 @@ const Header = () => {
 
           {/* Mobile Navigation Menu */}
           <nav
-            className={`${menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-20px] opacity-0 pointer-events-none'}  lg:hidden fixed top-[110px] left-0 right-0 mx-4 transition-all duration-300 ease-out bg-black/90 rounded-3xl border border-white/10 hover-glow z-2000 `}
+            className={`${menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-20px] opacity-0 pointer-events-none'} lg:hidden fixed top-[110px] left-0 right-0 mx-4 transition-all duration-300 ease-out bg-black/90 backdrop-blur-3xl rounded-3xl border border-white/10 hover-glow z-2000`}
           >
             <div className="flex flex-col gap-4 p-6 z-200">
               {menuItems.map((item, index) => (

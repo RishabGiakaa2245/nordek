@@ -123,34 +123,22 @@ const Header = () => {
 
           {/* Mobile Navigation Menu */}
           <nav
-            className={`${menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-20px] opacity-0 pointer-events-none'}  lg:hidden fixed top-[110px] left-0 right-0 mx-4 transition-all duration-300 ease-out bg-black/90 rounded-3xl border border-white/10 hover-glow z-2000 `}
+            className={`${menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-[-20px] opacity-0 pointer-events-none'} lg:hidden fixed top-[110px] left-0 right-0 mx-4 transition-all duration-300 ease-in-out bg-black backdrop-blur-3xl rounded-3xl border border-white/10 hover-glow z-2000`}
           >
             <div className="flex flex-col gap-4 p-6 z-200">
               {menuItems.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
-                  className={`transform transition-all duration-300 ease-out ${
-                    menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                  className="text-left text-white font-poppins text-base font-medium transition-all duration-300 py-2 relative group"
                   onClick={() => setMenuOpen(false)}
                 >
-                  <div className="text-left text-white font-poppins text-base font-medium py-2 relative group overflow-hidden">
-                    <span className="relative z-10 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-[#6a62fd] group-hover:to-[#4bc3ff] group-hover:bg-clip-text group-hover:text-transparent">
-                      {item.label}
-                    </span>
-                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#6a62fd] to-[#4bc3ff] transition-all duration-300 group-hover:w-full"></span>
-                  </div>
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#6a62fd] to-[#4bc3ff] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
-              <div 
-                className={`pt-2 transform transition-all duration-300 ease-out ${
-                  menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                }`}
-                style={{ transitionDelay: `${menuItems.length * 100}ms` }}
-              >
-                <button className="hover-scale button-hover w-full flex px-6 py-4 justify-center items-center gap-2.5 rounded-[10px] border border-white/20 bg-nordek-button-gradient text-white font-poppins text-sm font-medium leading-[18px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(106,98,253,0.3)] hover:border-white/30">
+              <div className="pt-2 fade-up">
+                <button className="hover-scale button-hover w-full flex px-6 py-4 justify-center items-center gap-2.5 rounded-[10px] border border-white/20 bg-nordek-button-gradient text-white font-poppins text-sm font-medium leading-[18px] transition-all duration-300">
                   Contact Us
                 </button>
               </div>
