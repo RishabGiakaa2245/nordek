@@ -824,7 +824,7 @@ const HomePage = () => {
                   <>
                     {/* Bepay Money */}
                     <motion.div
-                      ref={typeof window !== 'undefined' && window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}
+                      ref={window.innerWidth >= 640 ? el => cardRefs.current[0] = el : null}
                       initial={{ opacity: 0, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
