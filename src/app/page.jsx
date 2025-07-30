@@ -38,7 +38,7 @@ const HomePage = () => {
             end: "+=300%",
             pin: true,
             scrub: 1,
-            markers: true
+            // markers: true
           }
         });
 
