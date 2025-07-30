@@ -1,8 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import Button from '../ui/Button';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import '@/styles/animations.css';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -1,8 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import Button from '../ui/Button';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import '@/styles/animations.css';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,21 +47,12 @@ const Header = () => {
 
           {/* Hamburger Menu Icon (Mobile only) */}
           <button 
-            className="hover-scale block lg:hidden p-2 text-white transition-all duration-300" 
+            className="block lg:hidden p-2 text-white" 
             aria-label="Open menu"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <svg 
-              className={`w-6 h-6 transition-transform duration-300 ${menuOpen ? 'rotate-90' : ''}`} 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
 
@@ -75,41 +64,37 @@ const Header = () => {
                 <a
                   key={index}
                   href={item.href}
-                  className="text-white font-poppins text-base font-medium transition-colors relative group"
+                  className="text-white font-poppins text-base font-medium hover:text-white/80 transition-colors"
                 >
                   {item.label}
-                  <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-gradient-to-r from-[#6a62fd] to-[#4bc3ff] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
             </nav>
 
             {/* Contact Button */}
-            <button className="hover-scale button-hover flex px-6 py-4 justify-center items-center gap-2.5 rounded-[10px] border border-white/20 bg-nordek-button-gradient text-white font-poppins text-sm font-medium leading-[18px] transition-all duration-300">
+            <button className="flex px-6 py-4 justify-center items-center gap-2.5 rounded-[10px] border border-white/20 bg-nordek-button-gradient text-white font-poppins text-sm font-medium leading-[18px] hover:opacity-90 transition-opacity">
               Contact Us
             </button>
           </div>
 
           {/* Mobile Navigation Menu */}
-          <nav 
-            className={`${menuOpen ? 'block fade-in' : 'hidden'} lg:hidden absolute top-full left-0 right-0 mt-4 bg-black/40 backdrop-blur-[12.5px] rounded-lg mx-8 border border-white/10 hover-glow`}
-            style={{
-              boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.30) inset'
-            }}
-          >
-            <div className="flex flex-col gap-4 p-6 stagger-delay">
+          <nav className={`${menuOpen ? 'block' : 'hidden'} lg:hidden absolute top-full left-0 right-0 mt-4 bg-black/40 backdrop-blur-[12.5px] rounded-lg mx-8 border border-white/10`}
+               style={{
+                 boxShadow: '0 0 10px 0 rgba(106, 98, 253, 0.30) inset'
+               }}>
+            <div className="flex flex-col gap-4 p-6">
               {menuItems.map((item, index) => (
                 <a
                   key={index}
                   href={item.href}
-                  className="fade-up text-left text-white font-poppins text-base font-medium transition-all duration-300 py-2 relative group"
+                  className="text-left text-white font-poppins text-base font-medium hover:text-white/80 transition-colors py-2"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#6a62fd] to-[#4bc3ff] transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
-              <div className="pt-2 fade-up">
-                <button className="hover-scale button-hover w-full flex px-6 py-4 justify-center items-center gap-2.5 rounded-[10px] border border-white/20 bg-nordek-button-gradient text-white font-poppins text-sm font-medium leading-[18px] transition-all duration-300">
+              <div className="pt-2">
+                <button className="w-full flex px-6 py-4 justify-center items-center gap-2.5 rounded-[10px] border border-white/20 bg-nordek-button-gradient text-white font-poppins text-sm font-medium leading-[18px] hover:opacity-90 transition-opacity">
                   Contact Us
                 </button>
               </div>

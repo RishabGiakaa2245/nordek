@@ -34,8 +34,7 @@ const VideoHero = () => {
       {/* Video Background */}
       <video
         ref={videoRef}
-        className="absolute inset-0 w-full h-full object-fill
-"
+        className="absolute inset-0 w-full h-full object-cover"
         autoPlay
         muted
         loop

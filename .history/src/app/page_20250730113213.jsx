@@ -189,14 +189,14 @@ const HomePage = () => {
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.15 }}
+                  transition={{ duration: 0.4 }}
                   className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-20"
                 >
                   <div className="flex flex-row gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-center items-center w-auto">
                     <motion.h1 
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.15, delay: 0.05 }}
+                      transition={{ duration: 0.4, delay: 0.1 }}
                       className="text-[28px] sm:text-[72px] lg:text-[96px] font-poppins font-semibold leading-[50px] sm:leading-[108px] lg:leading-[144px] text-left uppercase text-global-2 drop-shadow-lg"
                     >
                       Empowering
@@ -505,7 +505,7 @@ const HomePage = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.15 }}
+            transition={{ duration: 0.3 }}
             className="absolute left-[5%] top-[25%] transform -translate-y-1/2 hidden lg:block z-0"
           >
             <img
@@ -520,7 +520,7 @@ const HomePage = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.15 }}
+            transition={{ duration: 0.3 }}
             className="absolute right-[5%] top-[25%] transform -translate-y-1/2 hidden lg:block z-0"
           >
             <img
@@ -557,14 +557,14 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.15, delay: 0.05 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
                   className="flex flex-row gap-[6px] sm:gap-[9px] lg:gap-[12px] justify-center items-center w-auto"
                 >
                   <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.15, delay: 0.075 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-[20px] sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-left uppercase text-global-2"
                   >
                     At
@@ -583,7 +583,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.15 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-[20px] text-nowrap sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-right uppercase text-global-2"
                   >
                     , we believe
@@ -594,7 +594,7 @@ const HomePage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.15, delay: 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
                   className="text-[20px] sm:text-[48px] lg:text-[64px] font-poppins font-bold leading-[48px] sm:leading-[72px] lg:leading-[96px] text-center uppercase text-global-2 mt-[-10px] sm:mt-[-15px] lg:mt-[-20px]"
                 >
                   financial freedom should
@@ -734,7 +734,7 @@ const HomePage = () => {
               </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div> 
+        </motion.div>
       
       {/* Products Journey Section */}
       <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]">

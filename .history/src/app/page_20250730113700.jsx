@@ -734,7 +734,7 @@ const HomePage = () => {
               </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div> 
+        </motion.div>
       
       {/* Products Journey Section */}
       <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]">
