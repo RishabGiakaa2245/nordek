@@ -184,13 +184,13 @@ const HomePage = () => {
 
             {/* Main Hero Content */}
             <div className="flex flex-col justify-start items-center w-full  sm:mt-[42px] lg:mt-[56px]   sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
-              <div className="flex flex-col justify-start items-center my-36 sm:my-0 w-full">
+              <div className="flex flex-col justify-start items-center w-full">
                 {/* Hero Title */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.15 }}
-                  className="flex flex-col justify-start mt-14 sm:mt-0 items-center w-full relative z-0"
+                  className="flex flex-col justify-start my-1/2 sm:mt-0 items-center w-full relative z-0"
                 >
                   <div className="flex flex-row gap-[10px] sm:gap-[15px] lg:gap-[20px] justify-center items-center w-auto">
                     <motion.h1 
@@ -732,7 +732,7 @@ const HomePage = () => {
       <img
         src="/images/img_group_1707480519.png"
         alt="Decorative Element"
-        className="w-[78px] h-[80px] relative left-[75vw] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
+        className="w-[78px] h-[80px] relative left-[85vw] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
         animate={{ y: [0, -10, 0] }}
       />
       {/* Products Journey Section */}

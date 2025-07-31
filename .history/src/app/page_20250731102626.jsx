@@ -81,16 +81,16 @@ const HomePage = () => {
     }
   }, []);
   const industryPartners = [
-    { src: '/images/img_67581f654b98724_72x116.png', width: '116', height: 'auto' },
+    { src: '/images/img_67581f654b98724_72x116.png', width: '116', height: '72' },
     { src: '/images/img_66309a2c949f0dd.png', width: '244', height: '30' },
     { src: '/images/img_67694bdb9ee0061.png', width: '168', height: '24' },
     { src: '/images/img_67694bde1ea888d.png', width: '116', height: '40' },
-    { src: '/images/img_676948c91943343.png', width: '126', height: 'auto' },
-    { src: '/images/img_67581f654b98724_72x116.png', width: '116', height: 'auto' },
+    { src: '/images/img_676948c91943343.png', width: '106', height: '36' },
+    { src: '/images/img_67581f654b98724_72x116.png', width: '116', height: '72' },
     { src: '/images/img_66309a2c949f0dd.png', width: '244', height: '30' },
     { src: '/images/img_67694bdb9ee0061.png', width: '168', height: '24' },
     { src: '/images/img_67694bde1ea888d.png', width: '116', height: '40' },
-    { src: '/images/img_676948c91943343.png', width: '126', height: 'auto' },
+    { src: '/images/img_676948c91943343.png', width: '106', height: '36' },
   ];
 
   const features = [
@@ -184,7 +184,7 @@ const HomePage = () => {
 
             {/* Main Hero Content */}
             <div className="flex flex-col justify-start items-center w-full  sm:mt-[42px] lg:mt-[56px]   sm:mr-[132px] sm:ml-[88px] lg:mr-[176px] lg:ml-[118px]">
-              <div className="flex flex-col justify-start items-center my-36 sm:my-0 w-full">
+              <div className="flex flex-col justify-start items-center w-full">
                 {/* Hero Title */}
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -251,13 +251,14 @@ const HomePage = () => {
               </div>
 
               {/* Products Card - Enhanced glass effect */}
-              {/* <motion.div 
+              <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[480px] h-[140px] sm:h-[160px] lg:h-[180px] mt-20 my-[40px] sm:my-[55px] lg:my-[70px] z-0"
               >
+                {/* Card Background with enhanced glass effect */}
                 <motion.div
                   whileHover={{ 
                     boxShadow: [
@@ -272,7 +273,8 @@ const HomePage = () => {
                   }}
                 />
 
-                <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-4 lg:gap-6 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 h-full">
+                {/* Card Content */}
+                {/* <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-4 lg:gap-6 px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8 h-full">
                   <motion.div 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -347,8 +349,8 @@ const HomePage = () => {
                       />
                     </motion.div>
                   </div>
-                </div>
-              </motion.div> */}
+                </div> */}
+              </motion.div>
 
               {/* Industry Partners */}
               <div className="relative w-full mt-[65px] sm:mt-[97px] lg:mt-[130px] overflow-hidden z-30">
@@ -729,16 +731,16 @@ const HomePage = () => {
           </motion.div>
         </motion.div> 
       
-      <img
-        src="/images/img_group_1707480519.png"
-        alt="Decorative Element"
-        className="w-[78px] h-[80px] relative left-[75vw] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
-        animate={{ y: [0, -10, 0] }}
-      />
       {/* Products Journey Section */}
       {/* <div className="w-full mt-[6px] h-[300vh] sm:h-[450vh] sm:mt-[9px] lg:mt-[12px]">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-start items-end w-full">
+            <img
+              src="/images/img_group_1707480519.png"
+              alt="Decorative Element"
+              className="w-[78px] h-[80px] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
+              animate={{ y: [0, -10, 0] }}
+            />
             <div className="flex relative flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full mt-[-26px] sm:mt-[-39px] lg:mt-[-52px]"
             ref={sectionRef}
             >

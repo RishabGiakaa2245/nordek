@@ -732,7 +732,7 @@ const HomePage = () => {
       <img
         src="/images/img_group_1707480519.png"
         alt="Decorative Element"
-        className="w-[78px] h-[80px] relative left-[75vw] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
+        className="w-[78px] h-[80px] relative left-[85vw] sm:w-[117px] sm:h-[120px] lg:w-[156px] lg:h-[160px] mr-[42px] sm:mr-[63px] lg:mr-[84px] z-50 animate-float-glow"
         animate={{ y: [0, -10, 0] }}
       />
       {/* Products Journey Section */}
