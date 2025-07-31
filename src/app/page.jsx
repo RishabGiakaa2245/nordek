@@ -492,7 +492,7 @@ const HomePage = () => {
         </div>
       </div> */}
 {/* About Us Section */}
-        <motion.div className="w-full mt-[60px] sm:mt-[90px] lg:mt-[120px] relative">
+        <motion.div id="about" className="w-full mt-[60px] sm:mt-[90px] lg:mt-[120px] relative scroll-mt-32">
           {/* Left Electric Pathway */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -1072,7 +1072,7 @@ const HomePage = () => {
         </div>
       </div> */}
       {/* Features Section */}
-      <div className="w-full">
+      <div id="features" className="w-full scroll-mt-32">
         <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-[60px] sm:gap-[90px] lg:gap-[120px] justify-start items-center w-full">
             <div className="flex flex-col gap-[42px] sm:gap-[63px] lg:gap-[84px] justify-start items-center w-full">
@@ -1207,7 +1207,7 @@ const HomePage = () => {
               </motion.div>
             </div>
             {/* Partners Section */}
-            <div className="flex flex-row justify-start items-center w-full max-w-[1234px]">
+            <div id="partners" className="flex flex-row justify-start items-center w-full max-w-[1234px] scroll-mt-32">
               <div className="flex flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center w-full border border-header-1 rounded-[7px] sm:rounded-[10px] lg:rounded-[14px] bg-[linear-gradient(0deg,#00000066_0%,_#15151566_100%)] pt-[30px] pr-[28px] pb-[30px] pl-[28px] sm:pt-[45px] sm:pr-[42px] sm:pb-[45px] sm:pl-[42px] lg:pt-[60px] lg:pr-[56px] lg:pb-[60px] lg:pl-[56px]">
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
@@ -1461,9 +1461,30 @@ const HomePage = () => {
                       >
                         Company
                       </motion.p>
-                      {['About', 'Contact Us', 'Products', 'Features'].map((item, index) => (
-                        <motion.p
-                          key={item}
+                      {[
+                        { label: 'About', href: '#about' },
+                        { label: 'Contact Us', href: null },
+                        { label: 'Products', href: null },
+                        { label: 'Features', href: '#features' }
+                      ].map((item, index) => (
+                        <motion.a
+                          key={item.label}
+                          href={item.href}
+                          onClick={(e) => {
+                            if (item.href) {
+                              e.preventDefault();
+                              const element = document.querySelector(item.href);
+                              if (element) {
+                                const headerOffset = 100;
+                                const elementPosition = element.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                                window.scrollTo({
+                                  top: offsetPosition,
+                                  behavior: 'smooth'
+                                });
+                              }
+                            }
+                          }}
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
@@ -1471,8 +1492,8 @@ const HomePage = () => {
                           whileHover={{ x: 5, color: '#4bc3ff' }}
                           className="text-[10px] sm:text-[15px] lg:text-[20px] font-poppins font-normal leading-[15px] sm:leading-[22px] lg:leading-[30px] text-left text-global-3 cursor-pointer transition-colors"
                         >
-                          {item}
-                        </motion.p>
+                          {item.label}
+                        </motion.a>
                       ))}
                     </motion.div>
                     <motion.div
@@ -1491,9 +1512,30 @@ const HomePage = () => {
                       >
                         Quick Links
                       </motion.p>
-                      {['Partners', 'Careers', 'Media Kit', 'Investors'].map((item, index) => (
-                        <motion.p
-                          key={item}
+                      {[
+                        { label: 'Partners', href: '#partners' },
+                        { label: 'Careers', href: null },
+                        { label: 'Media Kit', href: null },
+                        { label: 'Investors', href: null }
+                      ].map((item, index) => (
+                        <motion.a
+                          key={item.label}
+                          href={item.href}
+                          onClick={(e) => {
+                            if (item.href) {
+                              e.preventDefault();
+                              const element = document.querySelector(item.href);
+                              if (element) {
+                                const headerOffset = 100;
+                                const elementPosition = element.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                                window.scrollTo({
+                                  top: offsetPosition,
+                                  behavior: 'smooth'
+                                });
+                              }
+                            }
+                          }}
                           initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
@@ -1501,8 +1543,8 @@ const HomePage = () => {
                           whileHover={{ x: 5, color: '#4bc3ff' }}
                           className="text-[10px] sm:text-[15px] lg:text-[20px] font-poppins font-normal leading-[15px] sm:leading-[22px] lg:leading-[30px] text-left text-global-3 cursor-pointer transition-colors"
                         >
-                          {item}
-                        </motion.p>
+                          {item.label}
+                        </motion.a>
                       ))}
                     </motion.div>
                   </motion.div>

@@ -7,9 +7,25 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useIntersectionObserver();
 
+  const handleClick = (e, href) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const headerOffset = 100; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setMenuOpen(false); // Close mobile menu after clicking
+  };
+
   const menuItems = [
     { label: 'About', href: '#about' },
-    { label: 'Products', href: '#products' },
+    // { label: 'Products', href: '#products' }, 
     { label: 'Features', href: '#features' },
     { label: 'Partners', href: '#partners' },
   ];
@@ -106,6 +122,7 @@ const Header = () => {
                 <a
                   key={index}
                   href={item.href}
+                  onClick={(e) => handleClick(e, item.href)}
                   className="text-white font-poppins text-base font-medium transition-colors relative group"
                 >
                   {item.label}
@@ -133,7 +150,7 @@ const Header = () => {
                     menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => handleClick(e, item.href)}
                 >
                   <div className="text-left text-white font-poppins text-base font-medium py-2 relative group overflow-hidden">
                     <span className="relative z-10 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-[#6a62fd] group-hover:to-[#4bc3ff] group-hover:bg-clip-text group-hover:text-transparent">
