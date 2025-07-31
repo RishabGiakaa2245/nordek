@@ -2,40 +2,10 @@
   "name": "rishab_s_application",
   "version": "0.1.0",
   "private": true,
-  "rocketCritical": {
-    "dependencies": [
-      "next",
-      "react",
-      "react-dom",
-      "prop-types",
-      "@dhiwise/component-tagger",
-      "@tailwindcss/typography",
-      "recharts"
-    ],
-    "devDependencies": [
-      "eslint-config-next",
-      "tailwindcss",
-      "autoprefixer",
-      "postcss",
-      "eslint",
-      "prettier",
-      "@netlify/plugin-nextjs"
-    ],
-    "scripts": [
-      "dev",
-      "build",
-      "start",
-      "lint",
-      "lint:fix",
-      "format",
-      "serve"
-    ],
-    "warning": "🚨 CRITICAL: DO NOT REMOVE OR MODIFY ABOVE DEPENDENCIES - Required for Next.js app functionality"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next dev ",
+    "start": "next start ",
     "format": "prettier --write \"src/**/*.{js,jsx,css,md,json}\"",
     "serve": "next start"
   },
