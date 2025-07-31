@@ -1,4 +1,16 @@
 /* Fade animations */
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
