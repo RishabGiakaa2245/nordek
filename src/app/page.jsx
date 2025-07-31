@@ -1429,13 +1429,17 @@ const HomePage = () => {
                           className="w-[10px] h-[10px] sm:w-[25px] sm:h-[25px] lg:w-[40px] lg:h-[40px]"
                         />
                       </motion.button>
-                      <button className="border border-[#191919] rounded-[6px] sm:rounded-[9px] lg:rounded-[12px] pt-[6px] pr-[6px] pb-[6px] pl-[6px] sm:pt-[9px] sm:pr-[9px] sm:pb-[9px] sm:pl-[9px] lg:pt-[12px] lg:pr-[12px] lg:pb-[12px] lg:pl-[12px] ml-[10px] sm:ml-[15px] lg:ml-[20px]">
+                      <motion.button
+                      whileHover={{ scale: 1.1, backgroundColor: "rgba(25, 25, 25, 0.2)" }}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="border border-[#191919] rounded-[6px] sm:rounded-[9px] lg:rounded-[12px] pt-[6px] pr-[6px] pb-[6px] pl-[6px] sm:pt-[9px] sm:pr-[9px] sm:pb-[9px] sm:pl-[9px] lg:pt-[12px] lg:pr-[12px] lg:pb-[12px] lg:pl-[12px] ml-[10px] sm:ml-[15px] lg:ml-[20px]">
                         <img
                           src="/images/img_frame_1707482312.svg"
                           alt="Social Icon"
                           className="w-[10px] h-[10px] sm:w-[25px] sm:h-[25px] lg:w-[40px] lg:h-[40px]"
                         />
-                      </button>
+                      </motion.button>
                     </motion.div>
                   </div>
                   <motion.div 
